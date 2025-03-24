@@ -1,0 +1,114 @@
+## This is my output 
+
+Enter your choice (1-6): 6
+
+=== COMPARING WORKFLOW APPROACHES ===
+
+
+--- Running Pipeline Workflow ---
+Running pipeline workflow...
+Step 1: Extracting key points...
+Step 2: Generating summary...
+Step 3: Creating social media posts...
+Step 4: Creating email newsletter...
+
+--- Running DAG Workflow with Reflexion ---
+Running workflow with Reflexion-based self-correction...
+Step 1: Extracting key points with self-correction...
+Self-correction attempt 1/2
+Evaluating key_points...
+Content quality is good enough (score: 0.82). Returning content.
+Step 2: Generating summary with self-correction...
+Self-correction attempt 1/2
+Evaluating summary...
+Content quality is good enough (score: 0.82). Returning content.
+Step 3: Creating social media posts with self-correction...
+Self-correction attempt 1/2
+Evaluating social_media_post...
+Content quality is good enough (score: 0.80). Returning content.
+Step 4: Creating email newsletter with self-correction...
+Self-correction attempt 1/2
+Evaluating email...
+Content quality needs improvement (score: 0.68). Applying feedback.
+Improving email based on feedback...
+Self-correction attempt 2/2
+Evaluating email...
+Failed to parse evaluation as JSON. Creating default structure.
+Content quality needs improvement (score: 0.50). Applying feedback.
+Improving email based on feedback...
+Finished self-correction after 2 attempts.
+
+--- Running Agent-Driven Workflow ---
+Running agent-driven workflow...
+Agent iteration 1/10
+Executing tool: extract_key_points
+Executing tool: generate_summary
+Executing tool: create_social_media_posts
+Executing tool: create_email_newsletter
+Agent has completed the workflow.
+
+--- Evaluating pipeline workflow outputs ---
+Evaluating summary...
+Evaluating social_media_post (facebook)...
+Evaluating social_media_post (linkedin)...
+Evaluating social_media_post (twitter)...
+Failed to parse evaluation as JSON. Creating default structure.
+Evaluating email...
+
+--- Evaluating reflexion workflow outputs ---
+Evaluating summary...
+Evaluating social_media_post (twitter)...
+Evaluating social_media_post (linkedin)...
+Failed to parse evaluation as JSON. Creating default structure.
+Evaluating social_media_post (facebook)...
+Evaluating email...
+
+--- Evaluating agent workflow outputs ---
+Evaluating summary...
+Evaluating social_media_post (twitter)...
+Failed to parse evaluation as JSON. Creating default structure.
+Evaluating social_media_post (linkedin)...
+Evaluating social_media_post (facebook)...
+Evaluating email...
+
+=== WORKFLOW COMPARISON RESULTS ===
+
+Overall Workflow Scores:
+Pipeline Workflow: 0.72
+Reflexion Workflow: 0.75
+Agent Workflow: 0.70
+
+Best Workflow: Reflexion (Score: 0.75)
+
+Strengths and Weaknesses:
+
+Pipeline Workflow:
+  Strengths:
+  - Simple and straightforward implementation
+  - Predictable execution flow
+  - Easy to debug and maintain
+  Weaknesses:
+  - Limited flexibility in task ordering
+  - No ability to use results from multiple upstream tasks
+  - No self-correction mechanism
+
+Reflexion Workflow:
+  Strengths:
+  - Self-correction improves output quality
+  - More flexible than pipeline workflow
+  - Explicit evaluation criteria for each task
+  Weaknesses:
+  - More complex implementation
+  - Potentially higher cost due to multiple LLM calls
+  - May not always converge to better results
+
+Agent Workflow:
+  Strengths:
+  - Most flexible approach
+  - Can dynamically decide task order
+  - Ability to handle complex dependencies
+  Weaknesses:
+  - Most complex implementation
+  - Less predictable behavior
+  - Potential for inefficient tool usage
+>>> 
